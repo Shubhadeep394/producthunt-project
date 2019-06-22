@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'il+s$4!(hlx()q6i!26%ygjbov4%z5u3x5x_(2u@*4z#a@9!af'
+SECRET_KEY = 'qn1p7wyfd%)-yh$_x+(b2a&+ys1$ph)9@tnq06hmgp^bfq11@g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'producthunt.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'producthuntdb',
+        'USER':'postgres',
+        'PASSWORD':'django1234',
+        'HOST':'localhost',
+        'PORT':'5432',
     }
 }
 
@@ -119,10 +123,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'producthunt/static/')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
